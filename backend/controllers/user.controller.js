@@ -116,13 +116,14 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, bio, skills } = req.body;
+        let cloudResponse;
         
         if (req.file){
 
             const file = req.file;
             // cloudinary ayega idhar
             const fileUri = getDataUri(file);
-            const cloudResponse = await cloudinary.uploader.upload(fileUri.content, {
+            cloudResponse = await cloudinary.uploader.upload(fileUri.content, {
                 folder: "jobhunt",
             });
         }
@@ -173,7 +174,7 @@ export const updateProfile = async (req, res) => {
         })
     } catch (error) {
         console.log(error);
-        return res.status(501).json({
+        return res.status(500).json({
             message:"Error in updating profile.",
             success: false
         })
