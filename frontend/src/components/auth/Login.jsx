@@ -70,6 +70,7 @@ const Login = () => {
               name="email"
               onChange={changeEventHandler}
               placeholder="nayan@gmail.com"
+              required
             />
           </div>
 
@@ -81,6 +82,7 @@ const Login = () => {
               name="password"
               onChange={changeEventHandler}
               placeholder="Enter your password"
+              required
             />
           </div>
           <div className="flex items-center justify-between">
@@ -93,6 +95,7 @@ const Login = () => {
                   checked={input.role === "student"}
                   onChange={changeEventHandler}
                   className="cursor-pointer"
+                  required
                 />
                 <Label htmlFor="r1">Candidate</Label>
               </div>

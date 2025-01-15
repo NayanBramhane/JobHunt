@@ -83,6 +83,7 @@ const Signup = () => {
               name="fullname"
               onChange={changeEventHandler}
               placeholder="Nayan Bramhane"
+              required
             />
           </div>
           <div className="my-2">
@@ -93,6 +94,7 @@ const Signup = () => {
               name="email"
               onChange={changeEventHandler}
               placeholder="nayan@gmail.com"
+              required
             />
           </div>
           <div className="my-2">
@@ -103,6 +105,7 @@ const Signup = () => {
               name="phoneNumber"
               onChange={changeEventHandler}
               placeholder="Enter 10 Digit Phone Number"
+              required
             />
           </div>
           <div className="my-2">
@@ -113,6 +116,7 @@ const Signup = () => {
               name="password"
               onChange={changeEventHandler}
               placeholder="Enter strong password"
+              required
             />
           </div>
           <div className="flex items-center justify-between">
@@ -125,8 +129,9 @@ const Signup = () => {
                   checked={input.role === "student"}
                   onChange={changeEventHandler}
                   className="cursor-pointer"
+                  required
                 />
-                <Label htmlFor="r1">Job Seeker</Label>
+                <Label htmlFor="r1">Candidate</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <Input
@@ -141,7 +146,7 @@ const Signup = () => {
               </div>
             </RadioGroup>
             <div className="flex items-center gap-2">
-              <Label>Profile</Label>
+              <Label>Profile Photo</Label>
               <Input
                 accept="image/*"
                 type="file"
