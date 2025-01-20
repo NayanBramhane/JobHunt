@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 
 const isAuthenticated = async (req, res, next) => {
   try {
-    console.log(req.cookies);
     const token = req.cookies.token;
     if (!token) {
       return res.status(401).json({
@@ -20,7 +19,15 @@ const isAuthenticated = async (req, res, next) => {
     req.id = decode.userId;
     next();
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };
 export default isAuthenticated;

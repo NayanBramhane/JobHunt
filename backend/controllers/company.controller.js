@@ -29,7 +29,15 @@ export const registerCompany = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };
 export const getCompany = async (req, res) => {
@@ -47,7 +55,15 @@ export const getCompany = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };
 // get company by id
@@ -66,7 +82,15 @@ export const getCompanyById = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };
 export const updateCompany = async (req, res) => {
@@ -98,6 +122,14 @@ export const updateCompany = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };

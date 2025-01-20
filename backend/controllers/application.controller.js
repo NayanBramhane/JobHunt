@@ -45,7 +45,15 @@ export const applyJob = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };
 export const getAppliedJobs = async (req, res) => {
@@ -72,7 +80,15 @@ export const getAppliedJobs = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };
 // admin dekhega kitna user ne apply kiya hai
@@ -97,7 +113,15 @@ export const getApplicants = async (req, res) => {
       succees: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };
 export const updateStatus = async (req, res) => {
@@ -129,6 +153,14 @@ export const updateStatus = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
+    return res.status(500).json({
+      message: "Internal server error.",
+      success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
+    });
   }
 };

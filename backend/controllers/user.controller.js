@@ -54,10 +54,14 @@ export const register = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
     return res.status(500).json({
-      message: error.message || "An unexpected error occurred.",
+      message: "Internal server error.",
       success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
     });
   }
 };
@@ -124,10 +128,14 @@ export const login = async (req, res) => {
         success: true,
       });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
     return res.status(500).json({
-      message: error.message || "An unexpected error occurred.",
+      message: "Internal server error.",
       success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
     });
   }
 };
@@ -147,10 +155,14 @@ export const logout = async (_req, res) => {
         success: true,
       });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
     return res.status(500).json({
-      message: error.message || "An unexpected error occurred.",
+      message: "Internal server error.",
       success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
     });
   }
 };
@@ -214,10 +226,14 @@ export const updateProfile = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(error);
+    }
+
     return res.status(500).json({
-      message: "Error in updating profile.",
+      message: "Internal server error.",
       success: false,
+      error: process.env.NODE_ENV !== "production" ? error.message : undefined,
     });
   }
 };
