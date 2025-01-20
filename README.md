@@ -1,6 +1,6 @@
 # JobHunt
 
-**JobHunt** is a job application platform that connects job seekers with potential employers. It provides functionalities for user registration, login, profile management, job postings, and applications. This project consists of two main parts: the **Backend** (API) and the **Frontend** (User Interface).
+**JobHunt** is a job application platform that connects job seekers with potential employers. It provides functionalities for user registration, login, profile management, job postings and applications. This project consists of two main parts: the **Backend** (API) and the **Frontend** (User Interface).
 
 You can access the deployed frontend here: [JobHunt](https://job-hunt-nayan.vercel.app)
 
