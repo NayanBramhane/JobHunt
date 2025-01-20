@@ -40,13 +40,13 @@ app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
 // Global Error Handler
-app.use((err, _req, res, _next) => {
-    const statusCode = err.status || 500;
-    res.status(statusCode).json({
-        success: false,
-        message: err.message || "Internal Server Error",
-    });
-});
+// app.use((err, _req, res, _next) => {
+//     const statusCode = err.status || 500;
+//     res.status(statusCode).json({
+//         success: false,
+//         message: err.message || "Internal Server Error",
+//     });
+// });
 
 // Start Server
 const startServer = async () => {
