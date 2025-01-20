@@ -16,7 +16,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Validate required environment variables
-const requiredEnvVars = ["FRONTEND_URI", "PORT", "DB_URI", "SECRET_KEY"];
+const requiredEnvVars = [
+  "FRONTEND_URI",
+  "PORT",
+  "MONGO_URI",
+  "SECRET_KEY",
+  "API_KEY",
+  "API_SECRET",
+];
 requiredEnvVars.forEach((varName) => {
   if (!process.env[varName]) {
     console.error(`Environment variable ${varName} is missing.`);
